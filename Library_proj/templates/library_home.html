@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% load humanize %}
+{% block title %} Library {% endblock %}
+{% block content %}
+  <h2> Welcome to the library </h2>
+  <h3> There are currently {{ book_count|apnumber }} book{{book_count|pluralize}} in all</h3>
+  {% for library in Libraries %}
+  <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{ library.lib_type }}<span class="badge">{{ library.book_set.all.count }} Book{{ library.book_set.all.count|pluralize }}</span></div>
+        <div class="panel-body">
+          {% for book in library.book_set.all %}
+            <ul>
+              <li><a href="{% url 'home:detail' book.id %}">{{ book.title }}</a></li>
+            </ul>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

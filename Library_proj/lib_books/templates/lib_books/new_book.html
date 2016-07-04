@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+</br></br>
+<div class="col-sm-8">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Add Book to Library</div>
+        <div class="panel-body">
+          <form  action="/home/new_book" method="post" role="form">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="title">Title</label>
+              </br>
+              <input type="text" name="title" id="title" placeholder="Enter Title" class="form-control">
+              </br></br>
+              <label for="author">Author</label>
+              </br>
+              <input type="text" name="author" id="author" placeholder="Enter Author" class="form-control" autofocus >
+              </br></br>
+              <label for="description">Description</label>
+              </br>
+              <textarea name="description" id="description" rows="8" cols="40" class="form-control" placeholder="Provide Description"></textarea>
+              </br></br>
+              <label for="Year_pub">Year_pub</label>
+              </br>
+              <input type="number" name="Year_pub" id="Year_pub" class="form-control">
+              </br></br>
+              <select name="Lib_id" class="form-control">
+                <option value="Library:History & Politics">History & Politics</option>
+                <option value="Library:Literature & Fiction">Literature & Fiction</option>
+                <option value="Library:Regional">Regional</option>
+                <option value="Library:Biography and Autobiographies">Biographies and Autobiographies</option>
+                <option value="Library:Technical">Technical</option>
+            </select>
+              </br></br>
+              <input type="submit"  value="Add" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}

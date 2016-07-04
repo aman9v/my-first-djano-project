@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+</br></br>
+<div class="col-sm-5">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h2>{{ book.title }}</h2></div>
+        <div class="panel-body">
+          <h3> By {{ book.author }}</h3>
+          <h3>Published: {{ book.year_pub }}</h3>
+          <p>
+            <em>{{ book.description }}</em>
+          </p>
+        </div>
+      </div>
+      <a href="/home">Back</a>
+    </div>
+{% endblock %}
